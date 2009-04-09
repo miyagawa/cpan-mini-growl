@@ -28,10 +28,10 @@ sub update_mirror {
     my $cache = File::Spec->catfile($self->{local}, "avatars");
     mkdir $cache, 0777 unless -e $cache;
 
-    my @modules = keys %{$self->{recent}};
+    my @modules = grep !/CHECKSUMS/, keys %{$self->{recent}};
     for my $module (@modules) {
         if ($module =~ m!^authors/id/!) {
-            my $dist = CPAN::DistnameInfo->new($module);
+            my $dist = CPAN::DistnameInfo->new($module) or next;
             my $author = $pause->author($dist->cpanid);
             my $icon   = File::Spec->catfile($cache, $dist->cpanid . ".jpg");
             unless (-e $icon) {
