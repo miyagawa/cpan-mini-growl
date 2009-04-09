@@ -63,7 +63,7 @@ CPAN::Mini::Growl - Growls updates from CPAN::Mini
   > minicpan -q -c CPAN::Mini::Growl [other minicpan options]
 
   # Or in ~/.minicpanrc
-  class: CPAN::Mini::Growl
+  class = CPAN::Mini::Growl
 
 =head1 DESCRIPTION
 
