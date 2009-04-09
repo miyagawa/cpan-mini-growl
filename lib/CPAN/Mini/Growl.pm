@@ -40,8 +40,8 @@ sub update_mirror {
                 LWP::Simple::mirror($gravatar, $icon);
             }
 
-            my $msg = $dist->cpanid . " released " . $dist->distvname;
-            Mac::Growl::PostNotification($AppName, $EventType, $author->name, $msg, 0, 0, $icon);
+            my $msg = $author->name . " released " . $dist->distvname;
+            Mac::Growl::PostNotification($AppName, $EventType, $dist->distvname, $msg, 0, 0, $icon);
         }
     }
 }
