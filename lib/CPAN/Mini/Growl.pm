@@ -5,7 +5,7 @@ use 5.008_001;
 our $VERSION = '0.01';
 
 use base qw( CPAN::Mini );
-use Digest::MD5 qw(md5_hex);
+use Digest::MD5;
 use File::Spec;
 use Mac::Growl;
 use LWP::Simple;
