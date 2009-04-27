@@ -32,7 +32,7 @@ sub update_mirror {
     for my $module (@modules) {
         if ($module =~ m!^authors/id/!) {
             my $dist = CPAN::DistnameInfo->new($module) or next;
-            my $author = $pause->author($dist->cpanid);
+            my $author = $pause->author($dist->cpanid)  or next;
             my $icon   = File::Spec->catfile($cache, $dist->cpanid . ".jpg");
             unless (-e $icon) {
                 my $md5 = Digest::MD5::md5_hex($author->email);
